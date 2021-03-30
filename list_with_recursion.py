@@ -11,6 +11,7 @@ def main(): #the main function
     print("The copy of list is:",copylist(list1)) #printing the copy list by calling the copylist() function
     print("The list after flattening is:",flatlist(list1)) #printing the flatten list by calling flatlist() function
     print("The deep copy of the list is:",deepcopy(list1)) #printing the deep copy list by calling deepcopy() function
+    print("The cumulative elements of the list is",cumlativefrequency([1,2,3],0))
 #copying the list
 def copylist(list1): 
     '''Purpose:To copy the list1
@@ -45,5 +46,11 @@ def deepcopy(list1):
         return [list1[0]] + deepcopy(list1[1:])#returns a list with element at index 0 and calls recursively copylist function from 1st index to the end
     else: #if its list
         return [deepcopy(list1[0])] + deepcopy(list1[1:]) #retruns the list by calling again the list at index 0 and the original list from index 1 to end
+def cumlativefrequency(_list,sum):
+    if not _list:
+        return list()
+    sum+=_list[0]
+    return [sum]+cumlativefrequency(_list[1:],sum)
+
 if __name__=="__main__":
     main() #calling main function

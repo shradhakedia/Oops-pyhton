@@ -41,10 +41,58 @@ obj = turtle.Turtle()
 for i in range(5):
     obj.forward(100)
     obj.right(144)
-'''
+
 import turtle
 turtle.color('blue')
 style = ('Courier', 90, 'normal')
 turtle.write('SHRADHA', font=style, align='center')
 turtle.hideturtle()	
 turtle.done()
+'''
+
+'''
+def cumlativefrequency(_list,sum):
+    if not _list:
+        return list()
+    sum+=_list[0]
+    return [sum]+cumlativefrequency(_list[1:],sum)
+cl=cumlativefrequency([1,2,3],0)
+print(cl)
+'''
+'''
+def divk(n,k):
+    for i in range(1,n//2+1):
+        if n%i==0:
+            l.append(i)
+    l2=list(filter(lambda x: len(str(x))==k,l))
+    if l2!=[]:
+        return f"divisor is {max(l2)}"
+    else:
+        return "no such divisor"
+if __name__=="__main__":
+    n,k=map(int,input("Enter:").split())
+    if k>len(str(n)):
+        print("invalid k value")
+    else:
+        l=[n]
+        s=divk(n,k)
+        print(s)
+'''
+#n=2,k=3
+#output 998
+#m=999
+#n=2,k=1
+#m=9,m%n==0 then m else m-m%n
+def fun(k,n):
+    if k>0:
+        m=str(9)*k
+        m=int(m)
+    if k<=0 or n<=0 or m<n:
+        raise Exception("Invalid Input")
+    while m:
+        if m%n==0:
+            return m
+        else:
+            m-=1
+m=fun(3,0)
+print(m)
